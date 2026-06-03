@@ -10,6 +10,7 @@ class Produk {
         int stok;
 
     public:
+<<<<<<< HEAD
         
         Produk (){
             id = 0;
@@ -18,6 +19,8 @@ class Produk {
             stok = 0;
         }
         
+=======
+>>>>>>> dcfcf77684ef268b574979df97e4b2eeeafabe34
         Produk (int id, string nama, int harga, int stok){
             this->id = id;
             this->nama = nama;
@@ -57,6 +60,7 @@ class Produk {
             return stok;
         }
 
+<<<<<<< HEAD
 };
 
 struct CartNode
@@ -215,3 +219,56 @@ int main (){
 }
 
 
+=======
+
+        void tampilkan(){
+            cout << "Id produk: " << getNama() << endl;
+        }
+};
+
+
+
+
+
+int main (){
+
+    int pilihan;
+
+    do {
+    cout << "1. Login" << endl;
+    cout << "2. Register" << endl;
+    cout << "3. keluar" << endl;
+    cout << "Pilih (angka): ";
+    cin >> pilihan;
+    cout << endl;
+
+    if (!(cin >> pilihan)){
+        cin.clear();
+        cin.ignore(1000,'\n');
+        cout << "Input harus angka!\n" << endl;
+        continue;
+    }
+
+    switch (pilihan)
+    {
+    case 1:
+
+        
+
+        break;
+    case 2:
+
+        break;
+
+    default:
+        continue;
+        break;
+    }
+
+
+
+}while (pilihan !=3);
+
+    return 0;
+}
+>>>>>>> dcfcf77684ef268b574979df97e4b2eeeafabe34
