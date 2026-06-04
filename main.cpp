@@ -10,14 +10,6 @@ class Produk {
         int stok;
 
     public:
-        
-        Produk (){
-            id = 0;
-            nama = "";
-            harga = 0;
-            stok = 0;
-        }
-        
         Produk (int id, string nama, int harga, int stok){
             this->id = id;
             this->nama = nama;
@@ -57,6 +49,10 @@ class Produk {
             return stok;
         }
 
+
+        void tampilkan(){
+            cout << "Id produk: " << getNama() << endl;
+        }
 };
 
 
@@ -152,5 +148,3 @@ int main (){
 
     return 0;
 }
-
-
