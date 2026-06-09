@@ -88,3 +88,59 @@ public:
         return "Minuman";
     }
 };
+
+struct OrderNode{
+    int orderId;
+    string detail;
+    int total;
+    OrderNode* next;
+};
+
+void enqueuePesanan(OrderNode *&head, OrderNode *tail, int orderId, const string &detail, int total){
+    OrderNode *baru = new OrderNode(orderId, detail, total, nullptr);
+    if (head == nullptr){
+        head = baru;
+        tail = baru;
+    }else {
+        tail ->next;
+        tail = baru;
+    }
+}
+
+bool dequeuePesanan(OrderNode *&head, OrderNode&tail){
+    if (head == nullptr)
+    return false;
+
+    pesanan = head;
+    head = head->next;
+    if (head == nullptr)
+        tail ==nullptr;
+    pesanan->next = nullptr;
+    return true;
+}
+
+void tampilkanAntrianPesanan(OrderNode *head){
+    cout << "\nAntrian Pesanan";
+    if (head == nullptr){
+        cout << "Tidak ada pesanan dalam antrian." << endl;
+        return;
+    }
+
+    while (head != nullptr) {
+        cout << "Order #" << head->orderId
+             << " | Total: " << head->total
+             << " | Detail: " << head->detail << endl;
+        head = head->next;
+    }
+}
+
+void clearQueue(OrderNode *&head, OrderNode *&tail)
+{
+    while (head != nullptr)
+    {
+        OrderNode *hapus = head;
+        head = head->next;
+        delete hapus;
+    }
+    tail = nullptr;
+}
