@@ -173,11 +173,13 @@ g++ main.cpp -o toko
 ## 🎯 Tujuan Proyek
 
 Proyek ini dibuat untuk mempelajari implementasi berbagai struktur data dasar dalam bahasa C++, yaitu:
-
+* 
 * 📊 Array 2 Dimensi
 * 🔍 Searching
 * 🔗 Linked List
 * 📬 Queue
+* 👉 Pointer
+* 🏗️ Struct 
 
 melalui studi kasus sistem toko online sederhana.
 
