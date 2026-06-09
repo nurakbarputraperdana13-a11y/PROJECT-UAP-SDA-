@@ -59,12 +59,73 @@ class Produk {
 
 };
 
+struct CartNode
+{
+    Produk *produk;
+    int qty;
+    CartNode *next;
+};
+struct OrderNode
+{
+    int orderId;
+    string detail;
+    int total;
+    OrderNode *next;
+};
 
+    void checkoutKeranjang(CartNode *&head, OrderNode *&queueHead, OrderNode *&queueTail, int &nextOrderId)
+{
+    if (head == nullptr)
+    {
+        cout << "\nKeranjang masih kosong." << endl;
+        return;
+    }
 
+    CartNode *node = head;
+    while (node != nullptr)
+    {
+        if (node->qty > node->produk->getStok())
+        {
+            cout << "Stok tidak cukup untuk produk " << node->produk->getNama() << ". Checkout dibatalkan." << endl;
+            return;
+        }
+        node = node->next;
+    }
 
+    cout << "\nCheckout Keranjang:\n";
+    int total = 0;
+    string detail;
+    while (head != nullptr)
+    {
+        int subtotal = head->produk->getHarga() * head->qty;
+        detail += head->produk->getNama() + "(x" + to_string(head->qty) + ") ";
+        cout << "ID: " << head->produk->getId()
+             << "Nama: " << head->produk->getNama()
+             << "Qty: " << head->qty
+             << "Subtotal: " << subtotal << endl;
+        total += subtotal;
+        int baruStok = head->produk->getStok() - head->qty;
+        head->produk->setStok(baruStok);
 
+        CartNode *hapus = head;
+        head = head->next;
+        delete hapus;
+    }
+    
+    enqueuePesanan(queueHead, queueTail, nextOrderId++, detail, total);
+    cout << "Total pembayaran: " << total << endl;
+    cout << "Pesanan telah dimasukkan ke antrian." << endl;
+}
 
-
+void clearCart(CartNode *&head)
+{
+    while (head != nullptr)
+    {
+        CartNode *hapus = head;
+        head = head->next;
+        delete hapus;
+    }
+}
 
 int main (){
 
@@ -152,5 +213,53 @@ int main (){
 
     return 0;
 }
+        void tampilkan(){
+            cout << "Id produk: " << getNama() << endl;
+        }
+};
 
 
+
+
+
+int main (){
+
+    int pilihan;
+
+    do {
+    cout << "1. Login" << endl;
+    cout << "2. Register" << endl;
+    cout << "3. keluar" << endl;
+    cout << "Pilih (angka): ";
+    cin >> pilihan;
+    cout << endl;
+
+    if (!(cin >> pilihan)){
+        cin.clear();
+        cin.ignore(1000,'\n');
+        cout << "Input harus angka!\n" << endl;
+        continue;
+    }
+
+    switch (pilihan)
+    {
+    case 1:
+
+        
+
+        break;
+    case 2:
+
+        break;
+
+    default:
+        continue;
+        break;
+    }
+
+
+
+}while (pilihan !=3);
+
+    return 0;
+}
