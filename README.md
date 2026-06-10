@@ -195,6 +195,7 @@ melalui studi kasus sistem toko online sederhana.
 
 ## 📜 Lisensi
 
+**Kelompok 1***
 Proyek ini dibuat untuk keperluan pembelajaran dan tugas akademik.
 
 
